@@ -1,8 +1,10 @@
 name: Mirror repo to S3
+
 on:
   push:
     branches:
       - main
+
 jobs:
   s3Backup:
     runs-on: ubuntu-latest
@@ -25,3 +27,11 @@ jobs:
         env:
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+
+      - name: Debug S3 Access
+        run: |
+          echo "Checking AWS S3 credentials"
+          aws sts get-caller-identity --region us-east-1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
