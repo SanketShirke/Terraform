@@ -4,7 +4,7 @@ on:
   push: 
     branches: [ dev-branch ]
   schedule:
-   -  cron: '* * * * *'
+   -  cron: ''
 jobs:
   s3Backup:
     runs-on: ubuntu-latest
