@@ -1,6 +1,8 @@
 name: Mirror repo to S3
 
 on:
+  push: 
+    branches: [ dev-branch ]
   schedule:
     - cron: '* * * * *'  # Run every 5 minutes
 jobs:
