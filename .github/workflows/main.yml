@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 0
           path: repo-to-backup
-          ref: 'refs/heads/dev-branch'
+          ref: 'dev-branch'
 
       - name: Backup repo to s3
         uses: sammcj/backup-git-to-s3-action@main
